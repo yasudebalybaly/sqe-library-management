@@ -9,3 +9,7 @@ class Student:
         if score < 0:
             raise ValueError("Score cannot be negative")
         self.scores.append(score)
+
+    def get_average(self):
+        """Calculate and return the student's average score."""
+        return sum(self.scores) / len(self.scores) if self.scores else 0
