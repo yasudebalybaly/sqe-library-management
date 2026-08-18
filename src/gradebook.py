@@ -1,6 +1,6 @@
 class Student:
     def __init__(self, name):
-        self.name = name
+        self.student_name = name
         self.scores = []
 
     def add_score(self, score):
