@@ -11,7 +11,9 @@ class Library:
         self.books = {}
 
     def add_book(self, book):
-        self.books[book.book_id] = book
+    if book.book_id in self.books:
+        raise ValueError("Book ID already exists")
+    self.books[book.book_id] = book
 
     def issue_book(self, book_id):
     book = self.books[book_id]
