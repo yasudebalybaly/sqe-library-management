@@ -1,5 +1,7 @@
 class Book:
     def __init__(self, book_id, title, quantity):
+        if quantity < 0:
+            raise ValueError("Book quantity cannot be negative")
         self.book_id = book_id
         self.title = title
         self.quantity = quantity
