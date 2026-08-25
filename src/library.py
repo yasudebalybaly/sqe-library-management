@@ -14,9 +14,11 @@ class Library:
         self.books[book.book_id] = book
 
     def issue_book(self, book_id):
-        book = self.books[book_id]
-        book.available -= 1
-        return True
+    book = self.books[book_id]
+    if book.available <= 0:
+        raise ValueError("Book is not available")
+    book.available -= 1
+    return True
 
     def return_book(self, book_id):
         book = self.books[book_id]
