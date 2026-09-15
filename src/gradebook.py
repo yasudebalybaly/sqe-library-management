@@ -36,7 +36,7 @@ class Roster:
         self.students = []
 
     def add_student(self, student):
-        if len(student.scores) < 1 or len(student.scores) > 6:
+        if len(student.scores) < 1 or len(student.scores) >= 6:
             raise ValueError("Student must have between 1 and 6 scores")
         self.students.append(student)
 
