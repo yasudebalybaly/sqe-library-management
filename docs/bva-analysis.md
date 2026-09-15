@@ -47,3 +47,33 @@ These values test both sides of every important boundary in the `letter_grade()`
 The purpose of these tests is to find defects that may occur when a score is exactly at a grading boundary or just below or above it. This helps identify off-by-one errors that may not be detected by normal equivalence partitioning tests.
 
 Boundary Value Analysis complements the Equivalence Partitioning testing performed in Lab 5.
+
+
+## BVA Analysis - Roster
+
+The Roster requires each student to have between 1 and 6 scores.
+
+| Boundary | Value | Expected Result |
+|---|---:|---|
+| Minimum - 1 | 0 | Invalid |
+| Minimum | 1 | Valid |
+| Minimum + 1 | 2 | Valid |
+| Maximum - 1 | 5 | Valid |
+| Maximum | 6 | Valid |
+| Maximum + 1 | 7 | Invalid |
+
+These boundary values test the lower and upper limits of the allowed score count and help detect off-by-one errors.
+
+## BVA Analysis - validate_name
+
+The maximum allowed name length is 50 characters. An empty name is also invalid.
+
+| Boundary | Value | Expected Result |
+|---|---:|---|
+| Minimum | 0 | Invalid |
+| Minimum + 1 | 1 | Valid |
+| Maximum - 1 | 49 | Valid |
+| Maximum | 50 | Valid |
+| Maximum + 1 | 51 | Invalid |
+
+These values verify the lower and upper length boundaries and help detect incorrect handling of the 50-character limit.

@@ -1,23 +1,24 @@
 import pytest
 from src.gradebook import Student, Roster
-
-
-@pytest.mark.parametrize("number_of_scores,expected_error", [
-    (0, True),
-    (3, False),
-    (8, True),
+@pytest.mark.parametrize("score_count,expected_valid", [
+    (0, False),
+    (1, True),
+    (2, True),
+    (5, True),
+    (6, True),
+    (7, False),
 ])
-def test_roster_score_classes(number_of_scores, expected_error):
-    student = Student("Muhammad Yasir")
+def test_roster_score_count_boundaries(score_count, expected_valid):
+    student = Student("Test Student")
 
-    for score in range(number_of_scores):
+    for i in range(score_count):
         student.add_score(50)
 
     roster = Roster()
 
-    if expected_error:
-        with pytest.raises(ValueError):
-            roster.add_student(student)
-    else:
+    if expected_valid:
         roster.add_student(student)
         assert student in roster.students
+    else:
+        with pytest.raises(ValueError):
+            roster.add_student(student)
